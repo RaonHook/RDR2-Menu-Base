@@ -339,9 +339,15 @@ void addStringOption(const char* option, const char* var, int* intvar, int eleme
 void displayOptionIndex() {
 	char buffer[32];
 	snprintf(buffer, 32, "%i of %i", currentOption, optionCount);
-	draw_Text(buffer, menuX + 0.13f, 0.131f + (0.038f * ((optionCount - currentMenuMinOptions) + 2)), 255, 255, 255, 255, true);
-	drawRect(menuX, 0.124f + (0.038f * ((optionCount - currentMenuMinOptions) + 2)), 0.260f, 0.038f, 0, 0, 0, 190);
-	DrawSprite("generic_textures", "hud_menu_4a", menuX, 0.126f + (0.038f * ((optionCount - currentMenuMinOptions) + 2)), 0.260f, 0.002f, 0, 255, 255, 255, 255);
+	if (optionCount >= maxOptions) {
+		draw_Text(buffer, menuX + 0.13f, 0.131f + (0.038f * (maxOptions + 1)), 255, 255, 255, 255, true);
+		drawRect(menuX, 0.124f + (0.038f * (maxOptions + 1)), 0.260f, 0.038f, 0, 0, 0, 190);
+		DrawSprite("generic_textures", "hud_menu_4a", menuX, 0.126f + (0.038f * (maxOptions + 1)), 0.260f, 0.002f, 0, 255, 255, 255, 255);
+	} else {
+		draw_Text(buffer, menuX + 0.13f, 0.131f + (0.038f * (optionCount + 1)), 255, 255, 255, 255, true);
+		drawRect(menuX, 0.124f + (0.038f * (optionCount + 1)), 0.260f, 0.038f, 0, 0, 0, 190);
+		DrawSprite("generic_textures", "hud_menu_4a", menuX, 0.126f + (0.038f * (optionCount + 1)), 0.260f, 0.002f, 0, 255, 255, 255, 255);
+	}
 }
 
 void resetVars() 

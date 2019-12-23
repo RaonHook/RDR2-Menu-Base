@@ -302,7 +302,7 @@ void addStringOption(const char* option, const char* var, int* intvar, int eleme
 }
 void addStringOption(const char* option, const char* var, int* intvar, int elementCount, void (func)(), bool fastPress = false) {
 	char buffer[64];
-	snprintf(buffer, 64, "%s < %s >", option, *var);
+	snprintf(buffer, 64, "%s < %s >", option, var);
 	addOption(buffer);
 	if (currentOption == optionCount) {
 		if (fastPress == false)

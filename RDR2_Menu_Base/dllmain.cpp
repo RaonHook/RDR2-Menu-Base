@@ -23,6 +23,9 @@ void TeleportForward()
 
 bool ExampleBool = false;
 
+int stringoptionint = 0;
+const char* strings[6] = { "string 1", "string 2", "string 3", "string 4", "string 5", "string 6" };
+
 //Menu Loop | Everything gets called within here
 void main()
 {
@@ -38,6 +41,7 @@ void main()
 		addFloatOption("Set Player Scale", &playerScale, 0.1f, SetPlayerScale);
 		addOption("Teleport Forward", TeleportForward);
 		addBoolOption("Example Bool", ExampleBool, [] {ExampleBool = !ExampleBool; });
+		addStringOption("String Option", strings[stringoptionint], &stringoptionint, ARRAYSIZE(strings) - 1);
 		break;
 	case Submenu1:
 		addTitle("Submenu 1");

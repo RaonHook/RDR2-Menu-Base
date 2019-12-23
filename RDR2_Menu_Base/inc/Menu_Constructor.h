@@ -263,36 +263,39 @@ void addFloatOption(const char* option, float* var, float step, void (func)(), b
 
 void addStringOption(const char* option, const char* var, int* intvar, int elementCount, bool fastPress = false) {
 	char buffer[64];
-	snprintf(buffer, 64, "%s < %s >", option, *var);
+	snprintf(buffer, 64, "%s < %s >", option, var);
 	addOption(buffer);
 	if (currentOption == optionCount) {
-		if (fastPress) {
-			if (fastLeftPress) {
-				if (*intvar == 0)
+		if (fastPress == false)
+		{
+			if (leftPress) {
+				if (*intvar <= 0)
 					*intvar = elementCount;
 				else
-					*intvar--;
+					*intvar -= 1;
 			}
-			else if (fastRightPress) {
-				if (*intvar == elementCount)
+			else if (rightPress)
+			{
+				if (*intvar >= elementCount)
 					*intvar = 0;
 				else
-					*intvar++;
+					*intvar += 1;
 			}
 		}
 		else
 		{
-			if (leftPress) {
-				if (*intvar == 0)
+			if (fastLeftPress) {
+				if (*intvar <= 0)
 					*intvar = elementCount;
 				else
-					*intvar--;
+					*intvar -= 1;
 			}
-			else if (rightPress) {
-				if (*intvar == elementCount)
+			else if (fastRightPress)
+			{
+				if (*intvar >= elementCount)
 					*intvar = 0;
 				else
-					*intvar++;
+					*intvar += 1;
 			}
 		}
 	}
@@ -302,33 +305,36 @@ void addStringOption(const char* option, const char* var, int* intvar, int eleme
 	snprintf(buffer, 64, "%s < %s >", option, *var);
 	addOption(buffer);
 	if (currentOption == optionCount) {
-		if (fastPress) {
-			if (fastLeftPress) {
-				if (*intvar == 0)
+		if (fastPress == false)
+		{
+			if (leftPress) {
+				if (*intvar <= 0)
 					*intvar = elementCount;
 				else
-					*intvar--;
+					*intvar -= 1;
 			}
-			else if (fastRightPress) {
-				if (*intvar == elementCount)
+			else if (rightPress)
+			{
+				if (*intvar >= elementCount)
 					*intvar = 0;
 				else
-					*intvar++;
+					*intvar += 1;
 			}
 		}
 		else
 		{
-			if (leftPress) {
-				if (*intvar == 0)
+			if (fastLeftPress) {
+				if (*intvar <= 0)
 					*intvar = elementCount;
 				else
-					*intvar--;
+					*intvar -= 1;
 			}
-			else if (rightPress) {
-				if (*intvar == elementCount)
+			else if (fastRightPress)
+			{
+				if (*intvar >= elementCount)
 					*intvar = 0;
 				else
-					*intvar++;
+					*intvar += 1;
 			}
 		}
 		if (optionPress)

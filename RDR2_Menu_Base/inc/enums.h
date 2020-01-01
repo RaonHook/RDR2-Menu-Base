@@ -11,4 +11,5 @@ enum Submenus {
 	Main_Menu,
 	Submenu1,
 	Submenu2,
+	DogSpawner_Menu,
 };
